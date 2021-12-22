@@ -23,6 +23,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
+
     public Optional<User> getUser(Integer userId) {
         return userRepository.findById(userId);
     }

@@ -36,7 +36,7 @@ export default function Register() {
     function handelemail(event) {
         setemail((event.target.value));
     }
-    let nuwEmployee = {
+    let nuwUser = {
         id: id,
         username: username,
         password: password,
@@ -56,7 +56,7 @@ export default function Register() {
         axios({
             method: 'post',
             url: 'api/moeen/add',
-            data: nuwEmployee
+            data: nuwUser
         });
     }
     // function handle1(){
@@ -122,7 +122,7 @@ export default function Register() {
 
 
                 </div>
-                <button onClick={handleClick} >Employee Log in </button>
+                <button onClick={handleClick} >Sign Up </button>
 
             </form>
             {/* <h2>my employee details are:  {JSON.stringify(myEmployee)}</h2>

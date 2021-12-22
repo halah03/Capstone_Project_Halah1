@@ -1,9 +1,5 @@
 package com.example.moeenms.controller;
 
-//import com.example.customermss.model.Cafe;
-//import com.example.customermss.model.CafeService;
-//import com.example.customermss.model.Customer;
-//import com.example.customermss.model.CustomerService;
 import com.example.moeenms.model.Entities.Questions;
 import com.example.moeenms.model.Service.QuestionsService;
 import org.springframework.beans.factory.annotation.Autowired;
