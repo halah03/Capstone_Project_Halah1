@@ -7,7 +7,7 @@ export default function Answer() {
 
     return (
     <main style={{ padding: "1rem" }}>
-   
+   <p></p>
 
 
     </main>

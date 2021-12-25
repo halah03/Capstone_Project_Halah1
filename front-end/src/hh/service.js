@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function Services() {
+export default function Service() {
 
     return (
     <main style={{ padding: "1rem" }}>

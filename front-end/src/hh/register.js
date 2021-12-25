@@ -14,8 +14,9 @@ export default function Register() {
     const [firstName, setfirstName] = useState("")
     const [lastName, setlastName] = useState("")
     const [email, setemail] = useState("")
+    const [questionId, setquestionId] = useState("")
 
-    const [myUser, setMyUser] = useState({ id: "", username: "", password: "", firstName: "", lastName: "", email: "" })
+    const [myUser, setMyUser] = useState({ id: "", username: "", password: "", firstName: "", lastName: "", email: "",questionId: "" })
 
 
     function handelid(event) {
@@ -36,13 +37,17 @@ export default function Register() {
     function handelemail(event) {
         setemail((event.target.value));
     }
+    function handelFkey(event) {
+        setquestionId((event.target.value));
+    }
     let nuwUser = {
         id: id,
         username: username,
         password: password,
         firstName: firstName,
         lastName: lastName,
-        email: email
+        email: email,
+        questionId: questionId
     }
     useEffect(() => {
         axios.get("api/moeen")
@@ -68,7 +73,7 @@ export default function Register() {
         <div>
             <form >
                 <div >
-                    <label > Id Employee :</label>
+                    <label >National ID  :</label>
                     <br />
                     <input
                         type="text"

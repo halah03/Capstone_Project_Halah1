@@ -3,10 +3,7 @@ package com.example.moeenms.model.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +12,7 @@ import java.util.List;
 public class Questions {
 
     @Id
+    @Column(name = "questionId")
     private int questionId;
     private String title;
     private String content;
@@ -30,21 +28,29 @@ public class Questions {
     public Questions() {
     }
 
-    public Questions(int question_id, String title, String content, String answer1, String answer2, String answer3, List<User> items) {
+    public Questions(int questionId, String title, String content, String answer1, String answer2, String answer3) {
         this.questionId = questionId;
         this.title = title;
         this.content = content;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
+    }
+
+
+    public List<User> getItems() {
+        return items;
+    }
+
+    public void setItems(List<User> items) {
         this.items = items;
     }
 
-    public int getQuestion_id() {
+    public int getQuestionId() {
         return questionId;
     }
 
-    public void setQuestion_id(int questionId) {
+    public void setQuestionId(int questionId) {
         this.questionId = questionId;
     }
 
@@ -86,14 +92,6 @@ public class Questions {
 
     public void setAnswer3(String answer3) {
         this.answer3 = answer3;
-    }
-
-    public List<User> getItems() {
-        return items;
-    }
-
-    public void setItems(List<User> items) {
-        this.items = items;
     }
 
     @Override
