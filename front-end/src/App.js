@@ -14,13 +14,13 @@ export default function App() {
             paddingBottom: "1rem"
           }}
         >     
-          <Link to="/register">Page 0</Link> |{" "}
+          <Link to="/register">التسجيل</Link> |{" "}
 
-          <Link to="/asks">Page 1</Link> |{" "}
+          <Link to="/asks">اسأل</Link> |{" "}
 
-          <Link to="/answers">Page 2</Link> |{" "}
+          <Link to="/answers">أجب</Link> |{" "}
 
-          <Link to="/services">Page 3</Link>
+          <Link to="/services">الخدمات\معلومات</Link>
         </nav>
         <Outlet />
     </div> 

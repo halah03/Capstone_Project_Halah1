@@ -16,7 +16,7 @@ export default function Register() {
     const [email, setemail] = useState("")
     const [questionId, setquestionId] = useState("")
 
-    const [myUser, setMyUser] = useState({ id: "", username: "", password: "", firstName: "", lastName: "", email: "",questionId: "" })
+    const [myUser, setMyUser] = useState({ id: "", username: "", password: "", firstName: "", lastName: "", email: "", questionId: "" })
 
 
     function handelid(event) {
@@ -64,6 +64,8 @@ export default function Register() {
             data: nuwUser
         });
     }
+  
+  
     // function handle1(){
     // axios({
     //   method: 'delete',

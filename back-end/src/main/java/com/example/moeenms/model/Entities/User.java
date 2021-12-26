@@ -20,12 +20,14 @@ public class User {
     @JoinColumn(name = "question_id" , referencedColumnName = "questionId")
     private Questions questions;
 
+    @ManyToOne
+    @JoinColumn(name = "answer_id" , referencedColumnName = "answerId")
+    private Answers answers;
+
     public User() {
     }
 
-    public User(int id, String username, int password, String firstName, String lastName, String email,
-                Questions questions
-    ) {
+    public User(int id, String username, int password, String firstName, String lastName, String email, Questions questions, Answers answers) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -33,6 +35,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.questions = questions;
+        this.answers = answers;
     }
 
     public int getId() {
@@ -89,6 +92,14 @@ public class User {
 
     public void setQuestions(Questions questions) {
         this.questions = questions;
+    }
+
+    public Answers getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(Answers answers) {
+        this.answers = answers;
     }
 
     @Override
