@@ -25,8 +25,9 @@ public class AnswersController {
         answersService.addNewAnswers(answers);
     }
     @DeleteMapping(path = "delete/{answerId}")
-    public void deleteAnswers(@PathVariable ("answerId") Integer answerId){
-        answersService.deleteAnswers(answerId);
+    public void deleteAnswers(@PathVariable ("answerId") String answerId){
+        int ansID= Integer.parseInt(answerId);
+        answersService.deleteAnswers(ansID);
     }
 }
 
