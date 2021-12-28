@@ -1,5 +1,7 @@
 import React from "react";
 import { Outlet,Link } from "react-router-dom";
+import './App.css';
+
 
 
 export default function App() {
@@ -24,6 +26,7 @@ export default function App() {
 
           <Link to="/files">ملف</Link> |{" "}
 
+          <Link to="/registrations">استدعي التسجيل</Link>
 
           <Link to="/services">الخدمات\معلومات</Link>
         </nav>

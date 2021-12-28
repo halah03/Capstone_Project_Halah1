@@ -18,6 +18,10 @@ import Page from "./hh/page";
 import File from "./hh/file";
 import Files from "./hh/files";
 
+import Registrations from "./hh/registrations";
+import Registration from "./hh/registration";
+
+
 import Register from "./hh/register";
 
 
@@ -53,6 +57,11 @@ ReactDOM.render(
           <Route path="/files" element={<Files />}>
           <Route path=":id" element={<File />} />
           </Route>
+
+          <Route path="/registrations" element={<Registrations />}>
+          <Route path=":id" element={<Registration />} />
+          </Route>
+
 
         {/* Put two more routes here, for doctor and history */}
         </Route>

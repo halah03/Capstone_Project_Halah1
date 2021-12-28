@@ -60,11 +60,14 @@ function handleClick2() {
         <br />
         <input type="text" placeholder="" name="name" onChange={handeltitle} />
         <br />
-        <label > Content :</label>
+        <label > Your Answer :</label>
         <br />
-        <input type="text" placeholder="" name="email" onChange={handelcontent} />
-        <br />
-         <h2>my Answers details are:  {JSON.stringify(nuwUser)}</h2>
+        {/* <input type="text" placeholder="" name="email" onChange={handelcontent} /> */}
+       
+        <textarea placeholder="Enter your answer " onChange={handelcontent} >
+</textarea>
+<br />
+<br />
       <button onClick={handleClick2}>Post</button>
       <button onClick={handle1}>delete</button>  
     </div>

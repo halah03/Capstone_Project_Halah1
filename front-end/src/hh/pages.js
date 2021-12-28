@@ -5,11 +5,13 @@ import {Link} from "react-router-dom";
 import Answers from "./answers";
 import Services from "./services";
 import Files from "./files";
+import Asks from "./asks";
+
+
 
 
 export default function Pages() {
     let [searchParams, setSearchParams] = useSearchParams();
-
 
   return (
     <div style={{ display: "flex" }}>
@@ -19,7 +21,7 @@ export default function Pages() {
           padding: "1rem"
         }}
       >
-        <input
+        {/* <input
           value={searchParams.get("filter") || ""}
           onChange={event => {
             let filter = event.target.value;
@@ -29,17 +31,22 @@ export default function Pages() {
               setSearchParams({});
             }
           }}
-        />
-        <button>Here</button>
-
+        /> */}
+       
         <br />
-        <Link to="/pages"> اسال </Link>
+        <Link to="/asks"> اسال </Link>
+        <br />
+        <Link to="/answers"> mmmmm </Link>
+
       </nav>
+     
       <Outlet />
       
 {/* <Services
  /> */}
  <Files
+ />
+  <Answers
  />
     </div>
     

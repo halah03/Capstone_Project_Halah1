@@ -14,6 +14,7 @@ export default function Register() {
     const [firstName, setfirstName] = useState("")
     const [lastName, setlastName] = useState("")
     const [email, setemail] = useState("")
+    const [image, setimage] = useState("")
     const [questionId, setquestionId] = useState("")
 
     const [myUser, setMyUser] = useState({ id: "", username: "", password: "", firstName: "", lastName: "", email: "", questionId: "" })
@@ -40,6 +41,9 @@ export default function Register() {
     function handelFkey(event) {
         setquestionId((event.target.value));
     }
+    function handelImage(event) {
+        setimage((event.target.value));
+    }
     let nuwUser = {
         id: id,
         username: username,
@@ -47,7 +51,8 @@ export default function Register() {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        questionId: questionId
+        questionId: questionId,
+        image: image
     }
     useEffect(() => {
         axios.get("api/moeen")
@@ -124,6 +129,15 @@ export default function Register() {
                         placeholder=""
                         name="password"
                         onChange={handelemail} />
+                    <br />
+                    <label > Image :</label>
+                    <br />
+
+                    <input
+                        type="text"
+                        placeholder=""
+                        name="password"
+                        onChange={handelImage} />
                     <br />
 
 

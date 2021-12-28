@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
+import { Button } from 'react-bootstrap';
 
 
 
@@ -47,16 +48,15 @@ export default function Asks() {
       })
     return () => { }
   }, [])
-  function handleClic() {
+  function handleClic(event) {
+    event.preventDefault();
+
     axios({
       method: 'post',
       url: 'api/asks/add',
       data: newAsks
     });
   }
-
-
-  
 
   return (
     <div style={{ display: "flex" }}>
@@ -75,9 +75,9 @@ export default function Asks() {
         <br />
         <label > Content :</label>
         <br />
-        <input type="text" placeholder="" name="email" onChange={handelcontent} />
+        {/* <input type="text" placeholder="" name="email" onChange={handelcontent} /> */}
         <br />
-        <label > Answer 1 :</label>
+        {/* <label > Answer 1 :</label>
         <br />
         <input type="text" placeholder="" name="email" onChange={handelAnswer1} />
         <br />
@@ -88,9 +88,28 @@ export default function Asks() {
         <label > Answer 3 :</label>
         <br />
         <input type="text" placeholder="" name="email" onChange={handelAnswer3} />
-        <br />
+        <br /> */}
+        <textarea placeholder="description " onChange={handelcontent} >
+</textarea>
+<br />
+<style type="text/css">
+    {`
+    .btn-flat {
+      background-color: purple;
+      color: white;
+    }
 
-        <button onClick={handleClic} >Sign Up </button>
+    .btn-xxl {
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+    }
+    `}
+  </style>
+
+  <Button onClick={handleClic} variant="flat" size="xxl">
+    Send Question
+  </Button>
+        {/* <button onClick={handleClic} >Sign Up </button> */}
         {/* <button onClick={handleClicc} >Sign Upgg </button> */}
 
       </nav>

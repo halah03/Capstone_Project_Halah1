@@ -13,6 +13,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String image;
 
 
 
@@ -27,13 +28,14 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, int password, String firstName, String lastName, String email, Questions questions, Answers answers) {
+    public User(int id, String username, int password, String firstName, String lastName, String email, String image, Questions questions, Answers answers) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.image = image;
         this.questions = questions;
         this.answers = answers;
     }
@@ -86,6 +88,14 @@ public class User {
         this.email = email;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Questions getQuestions() {
         return questions;
     }
@@ -111,6 +121,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }
