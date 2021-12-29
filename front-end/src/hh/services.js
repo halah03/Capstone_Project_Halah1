@@ -19,7 +19,7 @@ export default class Services extends Component {
             });
     }
 
-    deleteAnswer(questionId) {
+    deleteAsk(questionId) {
         console.log("in")
         axios.delete(`/api/asks/delete/${questionId}`)
             .then(res => {
@@ -41,7 +41,7 @@ export default class Services extends Component {
                     <p>{item.lastName}</p>
                     <p>{item.email}</p>
                     <img src={item.image} width={"50px"} height={"50px"}/> */}
-                    <button onClick={(e) => this.deleteAnswer(item.questionId, e)}>Delete</button>
+                    <button onClick={(e) => this.deleteAsk(item.questionId, e)}>Delete</button>
                     <p>_ _ _ _</p>
                 </div>
             )))}

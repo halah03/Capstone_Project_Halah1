@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 
@@ -5,8 +6,6 @@ import axios from "axios"
 
 
 export default function Register() {
-    // const [myUser, setMyUser] = useState({id: "", username:"", password:"", firstName:"", lastName:"", email:""})
-
 
     const [id, setid] = useState("")
     const [username, setusername] = useState("")
@@ -15,10 +14,12 @@ export default function Register() {
     const [lastName, setlastName] = useState("")
     const [email, setemail] = useState("")
     const [image, setimage] = useState("")
-    const [questionId, setquestionId] = useState("")
+    // const [questions, setquestions] = useState("")
 
-    const [myUser, setMyUser] = useState({ id: "", username: "", password: "", firstName: "", lastName: "", email: "", questionId: "" })
+// let questionid={"questionId":questions}
 
+    const [myUser, setMyUser] = useState({ id: "", username: "", password: "", firstName: "", lastName: "", email: "",
+     image:"",questionId:"" })
 
     function handelid(event) {
         setid((event.target.value));
@@ -38,21 +39,23 @@ export default function Register() {
     function handelemail(event) {
         setemail((event.target.value));
     }
-    function handelFkey(event) {
-        setquestionId((event.target.value));
-    }
-    function handelImage(event) {
+    // function handelFkey(event) {
+    //     setquestions((event.target.value));
+    // }
+    function handelimage(event) {
         setimage((event.target.value));
     }
+   
     let nuwUser = {
-        id: id,
+        id: Number (id),
         username: username,
         password: password,
         firstName: firstName,
         lastName: lastName,
         email: email,
-        questionId: questionId,
-        image: image
+        image: image,
+        // questions: questions
+
     }
     useEffect(() => {
         axios.get("api/moeen")
@@ -62,20 +65,15 @@ export default function Register() {
             })
         return () => { }
     }, [])
+    
     function handleClick() {
         axios({
             method: 'post',
-            url: 'api/moeen/add',
+            url: '/api/moeen/add',
             data: nuwUser
         });
     }
   
-  
-    // function handle1(){
-    // axios({
-    //   method: 'delete',
-    //   url: "/api/employee/delete/11"
-    // })}
     return (
         <div>
             <form >
@@ -137,18 +135,21 @@ export default function Register() {
                         type="text"
                         placeholder=""
                         name="password"
-                        onChange={handelImage} />
+                        onChange={handelimage} />
+                    <br />
+                    {/* <label > AskId :</label>
                     <br />
 
-
-
+                    <input
+                        type="text"
+                        placeholder=""
+                        name="password"
+                        onChange={handelFkey} /> */}
+                    <br /> 
                 </div>
                 <button onClick={handleClick} >Sign Up </button>
 
             </form>
-            {/* <h2>my employee details are:  {JSON.stringify(myEmployee)}</h2>
-      <button onClick={handleClick}>Post</button>
-      <button onClick={handle1}>delete</button> */}
             <br />
         </div>
     )

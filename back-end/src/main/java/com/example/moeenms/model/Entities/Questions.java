@@ -10,9 +10,12 @@ import java.util.List;
 @Entity
 @Table
 public class Questions {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Id
+
     @Column(name = "questionId")
+
     private int questionId;
     private String title;
     private String content;

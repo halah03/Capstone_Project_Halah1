@@ -36,7 +36,7 @@ export default function Pages() {
         <br />
         <Link to="/asks"> اسال </Link>
         <br />
-        <Link to="/answers"> mmmmm </Link>
+        <Link to="/answers"> أجب </Link>
 
       </nav>
      

@@ -100,8 +100,8 @@ export default function Asks() {
     }
 
     .btn-xxl {
-      padding: 1rem 1.5rem;
-      font-size: 1.5rem;
+      padding: 1rem 1rem;
+      font-size: 1rem;
     }
     `}
   </style>

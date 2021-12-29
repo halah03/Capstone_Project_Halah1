@@ -37,7 +37,8 @@ useEffect(() => {
         })
     return () => { }
 }, [])
-function handleClick2() {
+function handleClick2(event) {
+  event.preventDefault();
     axios({
         method: 'post',
         url: 'api/answers/add',

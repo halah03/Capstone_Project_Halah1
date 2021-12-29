@@ -24,11 +24,11 @@ export default function App() {
 
           <Link to="/pages">صفحة</Link> |{" "}
 
-          <Link to="/files">ملف</Link> |{" "}
+          <Link to="/files">\الجواب</Link> |{" "}
 
-          <Link to="/registrations">استدعي التسجيل</Link>
+          <Link to="/registrations">\ استدعي التسجيل</Link>
 
-          <Link to="/services">الخدمات\معلومات</Link>
+          <Link to="/services">\ السؤال </Link>
         </nav>
         <Outlet />
     </div> 
