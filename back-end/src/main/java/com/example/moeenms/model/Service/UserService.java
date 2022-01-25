@@ -35,5 +35,17 @@ public class UserService {
     public void deleteUser(Integer userId) {
         userRepository.deleteById(userId);
     }
+    public String getCheck(String email ,String password) {
+        if( userRepository.existsByEmail(email) == true){
+            String pass = userRepository.findPasswordByEmail(email);
+            if (pass.equals(password)){
+                return "authenticated" ;
+            }
+            else {
+                return "Password does not match"; }
+        }
+
+        return "Username not found";
+    }
 }
 

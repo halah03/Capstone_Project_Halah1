@@ -41,7 +41,7 @@ class Registrations extends Component {
                     <p>{item.lastName}</p>
                     <p>{item.lastName}</p>
                     <p>{item.email}</p>
-                    <img src={item.image} width={"50px"} height={"50px"} />
+                    <img src={item.image} width={"50px"} height={"50px"} alt=''/>
                     <button onClick={(e) => this.handleUser(item.id, e)}>Delete</button>
                     <p>_ _ _ _</p>
                 </div>

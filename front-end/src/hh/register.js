@@ -4,7 +4,6 @@ import axios from "axios"
 
 
 
-
 export default function Register() {
 
     const [id, setid] = useState("")
@@ -14,7 +13,7 @@ export default function Register() {
     const [lastName, setlastName] = useState("")
     const [email, setemail] = useState("")
     const [image, setimage] = useState("")
-    // const [questions, setquestions] = useState("")
+    const [questionId, setquestionId] = useState("")
 
 // let questionid={"questionId":questions}
 
@@ -39,13 +38,14 @@ export default function Register() {
     function handelemail(event) {
         setemail((event.target.value));
     }
-    // function handelFkey(event) {
-    //     setquestions((event.target.value));
-    // }
+    function handelFkey(event) {
+        setquestionId((event.target.value));
+    }
     function handelimage(event) {
         setimage((event.target.value));
     }
-   
+    let foreignKey={"questionId":questionId}
+
     let nuwUser = {
         id: Number (id),
         username: username,
@@ -54,7 +54,7 @@ export default function Register() {
         lastName: lastName,
         email: email,
         image: image,
-        // questions: questions
+        questions: foreignKey
 
     }
     useEffect(() => {
@@ -78,77 +78,42 @@ export default function Register() {
         <div>
             <form >
                 <div >
-                    <label >National ID  :</label>
+                <h1 style = {{color:"red",
+                fontSize:"4rem"
+                }}>تسجيل مستخدم جديد</h1>
+                    <label > الهوية الوطنية</label>
                     <br />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="Id"
-                        onChange={handelid} />
-                    <br />
-
-                    <label > UserName :</label>
-                    <br />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="name"
-                        onChange={handelusername} />
-                    <br />
-                    <label > Password :</label>
-                    <br />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="email"
-                        onChange={handelpassword} />
-                    <br />
-                    <label > FirstName :</label>
-                    <br />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="Id"
-                        onChange={handelfirstname} />
-                    <br />
-                    <label > LastName :</label>
-                    <br />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="Id"
-                        onChange={handellastname} />
-                    <br />
-                    <label > Email :</label>
+                    <input type="text" onChange={handelid} />
                     <br />
 
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="password"
-                        onChange={handelemail} />
+                    <label > اسم المستخدم</label>
                     <br />
-                    <label > Image :</label>
+                    <input type="text" onChange={handelusername} />
                     <br />
 
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="password"
-                        onChange={handelimage} />
+                    <label > كلمة السر</label>
                     <br />
-                    {/* <label > AskId :</label>
+                    <input type="text" onChange={handelpassword} />
                     <br />
 
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="password"
-                        onChange={handelFkey} /> */}
+                    <label > الاسم الأول</label>
+                    <br />
+                    <input type="text" onChange={handelfirstname} />
+                    <br />
+
+                    <label > الاسم الأخير</label>
+                    <br />
+                    <input type="text" onChange={handellastname} />
+                    <br />
+
+                    <label > الإيميل</label>
+                    <br />
+                    <input type="text" onChange={handelemail} />
                     <br /> 
                 </div>
-                <button onClick={handleClick} >Sign Up </button>
-
+                <button class="button" onClick={handleClick} variant="danger">سجل الان </button>
+                <br /> 
+                <br /> 
             </form>
             <br />
         </div>

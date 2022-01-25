@@ -3,10 +3,7 @@ package com.example.moeenms.model.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,21 +11,26 @@ import java.util.List;
 @Table
 public class Answers {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int answerId;
     private String answerText;
     private String answerText2;
 
+
+
+    @ManyToOne
+    @JoinColumn(name= "user_id" ,referencedColumnName = "id")
+    private User user;
+
+
     public Answers() {
     }
 
-    @OneToMany(mappedBy = "answers")
-    @JsonIgnore
-    private List<User> items = new ArrayList<>();
-
-    public Answers(int answerId, String answerText, String answerText2) {
+    public Answers(int answerId, String answerText, String answerText2, User user) {
         this.answerId = answerId;
         this.answerText = answerText;
         this.answerText2 = answerText2;
+        this.user = user;
     }
 
     public int getAnswerId() {
@@ -55,22 +57,12 @@ public class Answers {
         this.answerText2 = answerText2;
     }
 
-    public List<User> getItems() {
-        return items;
+    public User getUser() {
+        return user;
     }
 
-    public void setItems(List<User> items) {
-        this.items = items;
-    }
-
-    @Override
-    public String toString() {
-        return "Answers{" +
-                "answerId=" + answerId +
-                ", answerText='" + answerText + '\'' +
-                ", answerText2='" + answerText2 + '\'' +
-                ", items=" + items +
-                '}';
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { Button } from 'react-bootstrap';
-
+import "../index.css"
 
 
 export default function Asks() {
@@ -11,6 +11,7 @@ export default function Asks() {
   const [answer1, setanswer1] = useState("")
   const [answer2, setanswer2] = useState("")
   const [answer3, setanswer3] = useState("")
+  const [email, setemail] = useState("")
 
   const [myAsks, setMyAsks] = useState({ questionId: "", title: "", content: "" })
 
@@ -32,13 +33,17 @@ export default function Asks() {
   function handelAnswer3(event) {
     setanswer3((event.target.value));
   }
+  function handelemail(event) {
+    setemail((event.target.value));
+}
   let newAsks = {
     questionId: questionId,
     title: title,
     content: content,
     answer1: answer1,
     answer2: answer2,
-    answer3: answer3
+    answer3: answer3,
+    email: email
   }
   useEffect(() => {
     axios.get("api/asks")
@@ -59,38 +64,25 @@ export default function Asks() {
   }
 
   return (
-    <div style={{ display: "flex" }}>
-      <nav
-        style={{
-          borderRight: "solid 1px",
-          padding: "1rem"
-        }}
-      >
-        <label > Id  :</label>
+    <div>
+     
+      <h1 style = {{color:"red",
+                fontSize:"3rem"
+                }}>اطرح سؤالك</h1>
+        <label >رقم السؤال</label>
         <br /> <input type="text" placeholder="" name="Id" onChange={handelid} />
         <br />
-        <label > Title :</label>
+        <label > العنوان</label>
         <br />
         <input type="text" placeholder="" name="name" onChange={handeltitle} />
         <br />
-        <label > Content :</label>
+        <label > المحتوى</label>
         <br />
-        {/* <input type="text" placeholder="" name="email" onChange={handelcontent} /> */}
-        <br />
-        {/* <label > Answer 1 :</label>
-        <br />
-        <input type="text" placeholder="" name="email" onChange={handelAnswer1} />
-        <br />
-        <label > Answer 2 :</label>
-        <br />
-        <input type="text" placeholder="" name="email" onChange={handelAnswer2} />
-        <br />
-        <label > Answer 3 :</label>
-        <br />
-        <input type="text" placeholder="" name="email" onChange={handelAnswer3} />
-        <br /> */}
-        <textarea placeholder="description " onChange={handelcontent} >
-</textarea>
+
+<textarea placeholder="description " onChange={handelcontent}
+    style={{ width: "50%", height: "120px", marginTop: "5px" }}
+></textarea>
+
 <br />
 <style type="text/css">
     {`
@@ -106,13 +98,10 @@ export default function Asks() {
     `}
   </style>
 
-  <Button onClick={handleClic} variant="flat" size="xxl">
-    Send Question
-  </Button>
-        {/* <button onClick={handleClic} >Sign Up </button> */}
-        {/* <button onClick={handleClicc} >Sign Upgg </button> */}
+  <button class="button" onClick={handleClic} variant="flat" size="xxl">
+   اسأل
+</button>
 
-      </nav>
     </div>
     
   );

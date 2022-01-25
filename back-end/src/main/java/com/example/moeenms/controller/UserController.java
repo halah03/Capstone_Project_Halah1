@@ -12,7 +12,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/moeen")
-public class UserController<userService> {
+public class UserController {
+
 
     private UserService userService;
 
@@ -32,6 +33,13 @@ public class UserController<userService> {
         return userService.getUser(userId);
     }
 
+
+    @GetMapping(path = "login")
+    public String checkLogin(@RequestParam (name = "email") String email ,
+                             @RequestParam (name = "password") String password ) {
+        return userService.getCheck(email,password);
+
+    }
     @PostMapping(path= "add")
     public void registerNewUser(@RequestBody User user){
         userService.addNewUser(user);
@@ -40,4 +48,7 @@ public class UserController<userService> {
     public void deleteUser(@PathVariable ("userId") Integer userId){
         userService.deleteUser(userId);
     }
+
+
 }
+

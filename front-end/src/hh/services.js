@@ -31,17 +31,18 @@ export default class Services extends Component {
     render() {
         return (
         <div>
-            <h3>Get</h3>
+            <h3>جميع الاسئلة</h3>
 
             {this.state.ask.map((item => (
                 <div key={item.questionId}>
-                    <h2>{item.title}</h2>
-                    <p>{item.content}</p>
-                    {/* <p>{item.firstName}</p>
-                    <p>{item.lastName}</p>
-                    <p>{item.email}</p>
-                    <img src={item.image} width={"50px"} height={"50px"}/> */}
-                    <button onClick={(e) => this.deleteAsk(item.questionId, e)}>Delete</button>
+
+                    <tr>
+                <td  style={{border:"1px  solid black", width:"350px", height:"50px"}} > {item.content} </td>
+
+                <td  style={{border:"1px  solid black", width:"100px", height:"50px"}} > {item.title} </td>
+              </tr>
+                
+                    <button class="button" onClick={(e) => this.deleteAsk(item.questionId, e)}>حذف</button>
                     <p>_ _ _ _</p>
                 </div>
             )))}
@@ -50,43 +51,3 @@ export default class Services extends Component {
     }
 }
 
-
-
-
-
-// import React, { useEffect, useState } from 'react'
-// import axios from "axios"
-
-
-
-// export default function Services() {
-
-//   const [data, setData] = useState([{ answerId: "", answerText: "", answerText2: "" }]);
-
-
-//   useEffect(() => {
-//     axios
-//       .get("api/answers")
-//       .then(result => setData(result.data));
-//     console.log(data);
-//   }, []);
-
-//   function deletee(answerId, e){
-//     console.log("in")
-//     axios.delete(`/api/answers/delete/${answerId}`)
-//   }
-//   return (
-//     <div>
-//       <h3>Get</h3>
-
-//       {data.map(item => {
-//         return <div key={item.answerId}>
-//           <h2>{item.answerText}</h2>
-//           <p>{item.answerText2}</p>
-//           <button onClick={(e)=> deletee(item.answerId , e)}>Delete</button>
-//           <p>_ _ _ _</p>
-//         </div>
-//       })}
-//     </div>
-//   )
-// }

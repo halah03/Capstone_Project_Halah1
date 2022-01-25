@@ -10,6 +10,8 @@ import Pages from "./hh/pages";
 import Files from "./hh/files";
 import Registrations from "./hh/registrations";
 import Register from "./hh/register";
+import Login from './hh/login';
+import Home from "./hh/home";
 
 
 
@@ -17,24 +19,27 @@ import Register from "./hh/register";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      {/* <Route path="/login" element={<Login />}>
-
-      </Route> */}
       <Route path="/" element={<App />}>
 
         <Route path="/register" element={<Register />}>
 
         </Route>
-        <Route path="asks" element={<Asks />} />
+
+        
+        <Route path="/asks" element={<Asks />} />
 
         <Route path="/answers" element={<Answers />} />
 
         <Route path="/services" element={<Services />} />
 
-        <Route path="/pages" element={<Pages />} />
-
+        <Route path="pages" element={<Pages />} />
+        
         <Route path="/files" element={<Files />} />
 
+        <Route path="/home" element={<Home />} />
+
+        <Route path="/login" element={<Login />}>
+         </Route>        
         <Route path="/registrations" element={<Registrations />} />
 
       </Route>

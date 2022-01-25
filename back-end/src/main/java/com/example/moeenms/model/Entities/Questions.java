@@ -10,11 +10,8 @@ import java.util.List;
 @Entity
 @Table
 public class Questions {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Id
-
-    @Column(name = "questionId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int questionId;
     private String title;
@@ -24,9 +21,9 @@ public class Questions {
     private String answer3;
 
 
-    @OneToMany(mappedBy = "questions")
-    @JsonIgnore
-    private List<User> items = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name= "user_id" ,referencedColumnName = "id")
+    private User user;
 
     public Questions() {
     }
@@ -40,13 +37,12 @@ public class Questions {
         this.answer3 = answer3;
     }
 
-
-    public List<User> getItems() {
-        return items;
+    public User getUser() {
+        return user;
     }
 
-    public void setItems(List<User> items) {
-        this.items = items;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getQuestionId() {
@@ -97,16 +93,5 @@ public class Questions {
         this.answer3 = answer3;
     }
 
-    @Override
-    public String toString() {
-        return "Questions{" +
-                "questionId=" + questionId +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", answer1='" + answer1 + '\'' +
-                ", answer2='" + answer2 + '\'' +
-                ", answer3='" + answer3 + '\'' +
-                ", items=" + items +
-                '}';
-    }
+
 }
